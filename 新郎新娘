@@ -1,0 +1,41 @@
+//①
+#include<stdio.h>
+#include<stdlib.h>
+
+//3个新郎A、B、C用1、2、3来表示。
+void main(){
+	int x,y,z;
+	for(x=1;x<=3;x++){//x的所有可能配偶
+		for(y=1;y<=3;y++){//y的所有可能配偶
+			for(z=1;z<=3;z++){//z的所有可能配偶
+				if((x!=1)&&(x!=3)&&(z!=3)&&(x!=y)&&(x!=z)&&(y!=z)){//判断条件
+					printf("x和%c结婚\n",'A'+x-1);
+					printf("y和%c结婚\n",'A'+y-1);
+					printf("z和%c结婚\n",'A'+z-1);
+				}
+			}
+		}
+	}
+	system("pause");
+}
+
+//②
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+void main(){
+	char a,b,c;
+	for(a='X';a<='Z';a++){
+		for(b='X';b<='Z';b++){
+			for(c='X';c<='Z';c++){
+				if(a!='X'&&c!='X'&&c!='Z'&&a!=b&&a!=c&&b!=c){
+					cout<<"A的新娘是"<<a<<endl;
+					cout<<"B的新娘是"<<b<<endl;
+					cout<<"C的新娘是"<<c<<endl;
+				}
+			}
+		}
+	}
+	system("pause");
+}

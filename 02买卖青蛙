@@ -1,0 +1,13 @@
+public static int  maxIncome(int prices[]){	
+		
+    int result=0; //收益
+    
+		if(prices==null || prices.length==0)
+			return 0;
+		int min=prices[0]; //遍历数组找到一个最便宜的价格
+		for(int i=1;i<prices.length;i++) {
+			result=Math.max(result, prices[i]-min); //比较前一天result与后一天的result，找到最大的result
+			min=Math.min(prices[i], min);//比较已知最便宜的价格与后一天的价格，从而找到数组中最便宜的价格
+		}	
+		return result;		
+	}

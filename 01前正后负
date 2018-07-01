@@ -1,0 +1,51 @@
+//① 时间复杂度O(n),空间复杂度O(n)
+public static void Sort(int a[]) {
+
+		int n=a.length;
+		int b[] = new int[n];
+		int i = 0, j = 0, count = 0;// count记录小于0的值的个数
+    
+		for (i = 0, j = 0, count = 0; i < a.length; i++) {
+			if (a[i] < 0) {// i指向的值<0时，将这个值放入b数组中，从头放，放入后j向后走一位
+				b[j] = a[i];
+				j++;
+			}
+			if (a[i] > 0) {//i指向的值>0时，将这个值放入b中，从后放，放到坐标为[(a的长度-1)减去已存入的<0的数的个数)]的位置
+				b[a.length - 1 - count] = a[i];
+				count++;
+			}
+		}
+		for(int k=0;k<b.length;k++){
+			System.out.print(b[k]+" ");
+			}
+	}
+  
+  //② 时间复杂度O(n),空间复杂度O(n)
+  public static void Sort(int a[]){
+    
+    int head,rear,count;
+		head=0;//头指针
+	 	count=0;//参与比较的元素的个数
+		rear=a.length-1;//尾指针
+
+		for(int i=head ;count<a.length;){//从头遍历，所以i指向头指针的位置
+			if(a[i]>0){   //i指向的值>0时，i与尾指针的值交换位置。头指针和i均不动，尾指针向前进一位
+				int t=a[i];
+				a[i]=a[rear];
+				a[rear]=t;
+				rear--;
+				count++;
+			}
+      if(a[i]==0){ //i指向的值=0，头指针指向的值等于0时，不动，i向后走一位
+				i++;
+				count++;
+			}
+	if(a[i]<0){//i指向的值<0时，i与头指针的值交换位置。尾指针不动，i和头指针向后走一位
+				int t=a[i];
+				a[i]=a[head];
+				a[head]=t;	
+				head++;
+				i++;
+				count++;
+			}		
+		}
